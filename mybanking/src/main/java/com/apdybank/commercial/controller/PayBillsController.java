@@ -13,15 +13,16 @@ public class PayBillsController {
 	@RequestMapping("/pay-bills")
 	public String index(Map<String, Object> model) {
 		model.put("pageName", "Pay My Bills");
+		model.put("cacheBuster", System.currentTimeMillis());
 		
-		ProcessingUtil.process(1000, 2000);
+		ProcessingUtil.process(1000, 3000);
 		
 		return "pay-bills.jsp";
 	}
 	
 	@RequestMapping("/resources/bills-style.css")
 	public String css(Map<String, Object> model) {
-		System.out.println("CSS controller");
+//		System.out.println("CSS controller");
 		
 		ProcessingUtil.process(2000, 5000);
 		
